@@ -12,44 +12,94 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    background: rgb(62, 71, 148);
 }
 #title {
-    
+    color: white;
+    justify-self: flex-start;
+    font-size: 36px;
+    font-style: italic;
+    position: relative;
+    top: -10%;
+    font-weight: bolder;
 }
+#buttons button {
+    margin-right: 10px;
+}
+#buttons input {
+    margin-right: 10px;
+}
+
 #size {
     
     padding: 10px 15px;
     font-size: 20px;
     font-weight: bold;
     font-style: italic;
-    border-radius: 5px;
-    margin-right: 100px;
+    
+    
+    box-shadow: 2px 3px;
     
     background: rgb(119, 161, 238);
 
 }
 #size:hover {
     background: rgb(153, 185, 245);
+    box-shadow: 3px 4px;
+    
 }
-
-#reset {
-    margin-bottom: 10px;
+#eraser {
+    
+    
     padding: 10px 15px;
     font-size: 20px;
     font-weight: bold;
     font-style: italic;
-    border-radius: 5px;
+   
+    
+    box-shadow: 2px 3px;
+    background: rgb(119, 161, 238);
+
+}
+#eraser:hover {
+    background: rgb(153, 185, 245);
+    box-shadow: 3px 4px;
+    
+}
+
+#reset {
+    
+  
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+  
+    box-shadow: 2px 3px;
     
     
     background: rgb(119, 161, 238);
 }
 #reset:hover {
     background: rgb(153, 185, 245);
+    box-shadow: 3px 4px;
+}
+#input-color {
+    position: relative;
+    top: 20%;
+    
+    box-shadow: 2px 3px;
+    
+    height: 42px;
+    width: 70px;
+}
+#input-color:hover {
+    
+    box-shadow: 3px 4px;
 }
 
-
 .container {
-    border: 3px black solid;
+    border: 5px solid white;
     position: relative;
     flex-wrap: wrap;
     right: 0%;
@@ -59,8 +109,9 @@ body {
     min-height: 500px;
     width: 100%;
     margin: 2rem auto;
+    background: white;
     
-
+    box-shadow: 10px 10px;
     
     
     

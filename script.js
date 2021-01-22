@@ -1,14 +1,14 @@
 
-const container = document.querySelector('.container')
-const square = document.querySelector('.square')
+const container = document.querySelector('.container');
+const square = document.querySelector('.square');
 
-const sizeButton = document.querySelector('#size')
-const resetButton = document.querySelector('#reset')
+
+const sizeButton = document.querySelector('#size');
+const resetButton = document.querySelector('#reset');
+const eraserButton = document.querySelector('#eraser');
+const colorInput = document.querySelector('#input-color');
 //When 'change size' button is clicked, prompts user for resize value
 sizeButton.addEventListener('click', changeSize);
-
-//reset button changes everything back to default white;
-
 
 
 
@@ -32,9 +32,24 @@ function fillGrid (size) {
 
         container.appendChild(square);
         square.addEventListener('mouseover', changeColor);
+        //reset button changes everything back to default white;
         resetButton.addEventListener('click', () => { 
+          
             square.style.background = 'white';
         });
+        console.log(document.querySelector('#input-color').value)
+        colorInput.addEventListener('click', () => {
+            square.addEventListener('mouseover', () => {
+            square.style.background = document.querySelector('#input-color').value;
+        
+            });
+
+        })
+        eraserButton.addEventListener('click', () => {
+            square.addEventListener('mouseover', () =>
+            square.style.background = 'white')
+        })
+
     }
 }
 
@@ -67,11 +82,29 @@ function changeSize(){
 }
 
 function changeColor(e) {
-    let red = Math.floor(Math.random() * 256);
-    let green = Math.floor(Math.random() * 256);
-    let blue = Math.floor(Math.random() * 256);
+    console.log(e.target.style.background)
+    
+    if (e.target.style.background === '' || e.target.style.background === 'white') {
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
 
-    e.target.style.background = `rgb(${red}, ${green}, ${blue})`;
+        e.target.style.background = `rgb(${red}, ${green}, ${blue})`;
+    }
+    else {
+        let rgb = e.target.style.background;
+        rgb = rgb.substring(4, rgb.length-1)
+         .replace(/ /g, '')
+         .split(',');
+        red = rgb[0];
+        green = rgb[1];
+        blue = rgb[2];
+
+        red *= 0.9;
+        green *= 0.9; //adds 10% black value to rgb colors every time you mouse over them;
+        blue *= 0.9;
+        e.target.style.background = `rgb(${red}, ${green}, ${blue})`;
+    }
 }
 
 
